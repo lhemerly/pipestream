@@ -46,10 +46,11 @@ def replace(table,
 class pipeStream:
     pipeInput = {} # A pipeInput is an ordered dictionary of order:input (can be a list)
     pipeMethod = {} # A pipeInput is an ordered dictionary of order:method
+    # TODO: pipeInput validator against pipeMethod
 
 def interpreter(pipeStream):
 
     for k, v in pipeStream.pipeInput.items():
         methodToCall = getattr(main, pipeStream.pipeMethod[k])(*pipeStream.pipeInput[k])
 
-
+    # TODO: multiple simultaneous pipeStream input
